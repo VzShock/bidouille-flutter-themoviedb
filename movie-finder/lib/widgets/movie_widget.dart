@@ -50,7 +50,10 @@ class _MovieWidget extends State<MovieWidget> {
     _model.descr = widget.movies[widget.index]['overview'];
     _model.genre = widget.movies[widget.index]['genre_ids'];
     _model.date = widget.movies[widget.index]['release_date'].toString();
-    _model.title = widget.movies[widget.index]['title'];
+    _model.title = widget.movies[widget.index]['original_name'].toString();
+    if (_model.title.toString().isEmpty || _model.title.toString() == "null") {
+      _model.title = widget.movies[widget.index]['title'].toString();
+    }
     _model.time = widget.movies[widget.index]['vote_average'].toString() + " / 10";
   }
 
