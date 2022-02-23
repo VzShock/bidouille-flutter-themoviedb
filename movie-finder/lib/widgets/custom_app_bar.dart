@@ -117,7 +117,7 @@ class GradientAppBar extends StatelessWidget {
           getTab(context, 'A VENIR', '/coming'),
           SizedBox(width: 40),
           IconButton(
-              icon: const Icon(Icons.close),
+              icon: const Icon(Icons.keyboard_return),
               color: Colors.white,
               hoverColor: Colors.red,
               iconSize: 30,

@@ -10,14 +10,14 @@ import 'widgets/widget_manager.dart';
 import 'widgets/movie_model.dart';
 import 'ActiveUser.dart' as acUsr;
 
-class MyAccPage extends StatefulWidget {
-  MyAccPage({Key? key}) : super(key: key);
+class MostPopularMovies extends StatefulWidget {
+  MostPopularMovies({Key? key}) : super(key: key);
 
   @override
-  _MyAccPage createState() => _MyAccPage();
+  _MostPopularMovies createState() => _MostPopularMovies();
 }
 
-class _MyAccPage extends State<MyAccPage> {
+class _MostPopularMovies extends State<MostPopularMovies> {
   Future<bool>? _data;
 
   final String _movieApiKey = '6691c7844e7241a1ebf50d84f4a4398e';
@@ -66,12 +66,10 @@ class _MyAccPage extends State<MyAccPage> {
         showErrorLogs: true,
       ));
 
-      Map trendingResults = await tmdbLogs.v3.trending.getTrending();
-      Map topRatedResults = await tmdbLogs.v3.movies.getTopRated();
+      Map trendingResults = await tmdbLogs.v3.movies.getTopRated();
 
       // this is going to be filled with data
       this._trendingMovies = trendingResults['results']; // une liste
-      this._topRatedMovies = topRatedResults['results'];
 
       // print(_trendingMovies);
     } catch (e) {

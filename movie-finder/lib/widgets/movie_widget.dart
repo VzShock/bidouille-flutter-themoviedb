@@ -19,7 +19,7 @@ class MovieWidget extends StatefulWidget {
 
 class _MovieWidget extends State<MovieWidget> {
   MovieModel _model = MovieModel(
-      id: "0",
+      genre: [],
       title: "Spider-Man: No Way Home (2021)",
       descr:
           "Après les évènements liés à l'affrontement avec Mystério, l'identité secrète de Spider-Man a été révélée. Il est poursuivi par le gouvernement américain, qui l'accuse du meurtre de Mystério, et est traqué par les médias. Cet évènement a également des conséquences terribles sur la vie de sa petite-amie M. J. et de son meilleur ami Ned. Désemparé, Peter Parker demande alors de l'aide au Docteur Strange. Ce dernier lance un sort pour que tout le monde oublie que Peter est Spider-Man. Mais les choses ne se passent pas comme prévu et cette action altère la stabilité de l'espace-temps. Cela ouvre le « Multivers », un concept terrifiant dont ils ne savent quasiment rien.",
@@ -44,8 +44,14 @@ class _MovieWidget extends State<MovieWidget> {
   @override
   void initState() {
     super.initState();
+    // print(widget.movies);
     movie = MovieDetails(info: _model);
     _model.img = "http://image.tmdb.org/t/p/w500" + widget.movies[widget.index]['poster_path'];
+    _model.descr = widget.movies[widget.index]['overview'];
+    _model.genre = widget.movies[widget.index]['genre_ids'];
+    _model.date = widget.movies[widget.index]['release_date'].toString();
+    _model.title = widget.movies[widget.index]['title'];
+    _model.time = widget.movies[widget.index]['vote_average'].toString() + " / 10";
   }
 
   _MovieWidget();

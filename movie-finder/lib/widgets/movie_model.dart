@@ -1,13 +1,13 @@
 class MovieModel {
-  final String id;
-  final String title;
-  final String descr;
+  List genre;
+  String title;
+  String descr;
   String img;
-  final String date;
-  final String time;
+  String date;
+  String time;
 
   MovieModel(
-      {required this.id,
+      {required this.genre,
       required this.title,
       required this.descr,
       required this.img,

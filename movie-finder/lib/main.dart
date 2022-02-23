@@ -1,10 +1,11 @@
+import 'package:dashboard_tmp/popular_page.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import 'home.dart';
-import 'services.dart';
-import 'settings.dart';
+import 'popular_page.dart';
+import 'comingsoon_page.dart';
 import 'package:url_strategy/url_strategy.dart'; // remove # marker in URL
 
 // import 'package:firebase_auth/firebase_auth.dart';
@@ -33,8 +34,8 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/': (context) => MyAccPage(),
-        '/best': (context) => MyServicesPage(),
-        '/coming': (context) => MySettingsPage()
+        '/best': (context) => MostPopularMovies(),
+        '/coming': (context) => ComingMovies()
       },
       debugShowCheckedModeBanner: false,
     );

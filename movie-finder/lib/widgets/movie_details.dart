@@ -31,6 +31,16 @@ class _MovieDetails extends State<MovieDetails> {
   @override
   void initState() {
     super.initState();
+    List<int> tmp_list = widget.info.genre.cast<int>();
+    for(var x in tmp_list) {
+      if (x == 27 || x == 18 || x == 53) { // horror thriller drama
+        _curr = "night";
+      } else if (x == 10402 || x == 10749 || x == 35 || x == 10751) { // comedy music romance family
+        _curr = "sunny";
+      } else {
+        _curr = "cloud";
+      }
+    }
   }
 
   _getThemeList(String name, IconData ico) {
@@ -48,24 +58,6 @@ class _MovieDetails extends State<MovieDetails> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        floatingActionButton: Container(
-          height: 80.0,
-          width: 80.0,
-          child: FittedBox(
-            fit: BoxFit.fill,
-            child: SpeedDial(
-              activeBackgroundColor: Colors.red,
-              overlayColor: Colors.black,
-              animatedIcon: AnimatedIcons.view_list,
-              children: [
-                _getThemeList("cloud", Icons.cloud),
-                _getThemeList("sunny", Icons.wb_sunny),
-                _getThemeList("night", Icons.mode_night),
-              ],
-              backgroundColor: Colors.green,
-            ),
-          ),
-        ),
         body: Container(
           decoration: BoxDecoration(
             image: DecorationImage(
