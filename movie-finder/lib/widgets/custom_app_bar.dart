@@ -105,6 +105,23 @@ class GradientAppBar extends StatelessWidget {
     );
   }
 
+  _getIcon(context) {
+    Color home = Colors.white;
+    String? route = ModalRoute.of(context)?.settings.name;
+    if (route == "/") {      
+      home = Colors.transparent;
+    }
+    return IconButton(
+            icon: const Icon(Icons.home),
+            color: home,
+            hoverColor: Colors.red,
+            iconSize: 30,
+            onPressed: () {
+              if (route != "/")
+                Navigator.pop(context);
+            });
+  }
+
   Widget getAllTabs(BuildContext context) {
     return Wrap(
         crossAxisAlignment: WrapCrossAlignment.center,
@@ -116,18 +133,7 @@ class GradientAppBar extends StatelessWidget {
           SizedBox(width: 40),
           getTab(context, 'A VENIR', '/coming'),
           SizedBox(width: 40),
-          IconButton(
-              icon: const Icon(Icons.keyboard_return),
-              color: Colors.white,
-              hoverColor: Colors.red,
-              iconSize: 30,
-              onPressed: () {
-                if (ModalRoute.of(context)?.settings.name == "/") {
-                  askAreYouSure(context);
-                } else {
-                  Navigator.pop(context);
-                }
-              }),
+          _getIcon(context),
           SizedBox(width: 20),
         ]);
   }

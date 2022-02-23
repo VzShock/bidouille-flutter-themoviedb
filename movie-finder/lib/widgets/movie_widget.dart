@@ -26,7 +26,7 @@ class _MovieWidget extends State<MovieWidget> {
       img:
           "Loading...",
       date: "15/12/2021",
-      time: "2h 28m");
+      ratio: "0 / 0");
 
     // MovieModel _model = MovieModel(
     //   // id: this.movie
@@ -54,7 +54,8 @@ class _MovieWidget extends State<MovieWidget> {
     if (_model.title.toString().isEmpty || _model.title.toString() == "null") {
       _model.title = widget.movies[widget.index]['title'].toString();
     }
-    _model.time = widget.movies[widget.index]['vote_average'].toString() + " / 10";
+    _model.ratio = widget.movies[widget.index]['vote_average'].toString();
+    _model.ratio = (_model.ratio.toString().compareTo("0") == 0) ?  "-- / 10": _model.ratio.toString() + " / 10";
   }
 
   _MovieWidget();

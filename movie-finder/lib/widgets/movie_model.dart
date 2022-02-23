@@ -4,7 +4,7 @@ class MovieModel {
   String descr;
   String img;
   String date;
-  String time;
+  String ratio;
 
   MovieModel(
       {required this.genre,
@@ -12,5 +12,5 @@ class MovieModel {
       required this.descr,
       required this.img,
       required this.date,
-      required this.time});
+      required this.ratio});
 }

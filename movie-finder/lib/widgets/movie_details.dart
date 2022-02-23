@@ -55,6 +55,23 @@ class _MovieDetails extends State<MovieDetails> {
         child: Icon(ico));
   }
 
+  _textCase(text, width) {
+    return Padding(
+                            padding: const EdgeInsets.all(20.0),
+                            child: Container(
+                              padding: const EdgeInsets.all(8.0),
+                                width: width,
+                                child: Center(
+                                  child: FTxText(text,
+                                      color: Color(0xFFFFFFFF),
+                                      fontSize: 20.0,
+                                      overflow: TextOverflow.ellipsis,
+                                      maxLines: 10),
+                                ),
+                                decoration:
+                                    BoxDecoration(color: Color(0xFF175B70))));
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -91,39 +108,9 @@ class _MovieDetails extends State<MovieDetails> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Padding(
-                            padding: const EdgeInsets.all(20.0),
-                            child: Container(
-                                width: 115,
-                                child: FTxText(widget.info.date,
-                                    color: Color(0xFFFFFFFF),
-                                    fontSize: 20.0,
-                                    overflow: TextOverflow.ellipsis,
-                                    maxLines: 10),
-                                decoration:
-                                    BoxDecoration(color: Color(0xFF175B70)))),
-                        Padding(
-                            padding: const EdgeInsets.all(20.0),
-                            child: Container(
-                                width: 80,
-                                child: FTxText(widget.info.time,
-                                    color: Color(0xFFFFFFFF),
-                                    fontSize: 20.0,
-                                    overflow: TextOverflow.ellipsis,
-                                    maxLines: 10),
-                                decoration:
-                                    BoxDecoration(color: Color(0xFF175B70)))),
-                        Padding(
-                            padding: const EdgeInsets.all(20.0),
-                            child: Container(
-                                width: 800,
-                                child: FTxText(widget.info.descr,
-                                    color: Color(0xFFFFFFFF),
-                                    fontSize: 20.0,
-                                    overflow: TextOverflow.ellipsis,
-                                    maxLines: 10),
-                                decoration:
-                                    BoxDecoration(color: Color(0xFF175B70)))),
+                        _textCase(widget.info.date, 135),
+                        _textCase(widget.info.ratio, 95),
+                        _textCase(widget.info.descr, 800),
                       ],
                     ),
                   ],
