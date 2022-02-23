@@ -2,7 +2,7 @@ class MovieModel {
   final String id;
   final String title;
   final String descr;
-  final String img;
+  String img;
   final String date;
   final String time;
 

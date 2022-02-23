@@ -7,8 +7,10 @@ import 'movie_details.dart';
 class MovieWidget extends StatefulWidget {
   final double height, width;
   final String txt;
+  final List movies;
+  final int index;
   MovieWidget(
-      {Key? key, required this.txt, required this.height, required this.width})
+      {Key? key, required this.index, required this.movies, required this.txt, required this.height, required this.width})
       : super(key: key);
 
   @override
@@ -22,9 +24,20 @@ class _MovieWidget extends State<MovieWidget> {
       descr:
           "Après les évènements liés à l'affrontement avec Mystério, l'identité secrète de Spider-Man a été révélée. Il est poursuivi par le gouvernement américain, qui l'accuse du meurtre de Mystério, et est traqué par les médias. Cet évènement a également des conséquences terribles sur la vie de sa petite-amie M. J. et de son meilleur ami Ned. Désemparé, Peter Parker demande alors de l'aide au Docteur Strange. Ce dernier lance un sort pour que tout le monde oublie que Peter est Spider-Man. Mais les choses ne se passent pas comme prévu et cette action altère la stabilité de l'espace-temps. Cela ouvre le « Multivers », un concept terrifiant dont ils ne savent quasiment rien.",
       img:
-          "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/sDYuyvhY0FUGs0MIHGKE6H8ETJZ.jpg",
+          "Loading...",
       date: "15/12/2021",
       time: "2h 28m");
+
+    // MovieModel _model = MovieModel(
+    //   // id: this.movie
+    //   title: "Spider-Man: No Way Home (2021)",
+    //   descr:
+    //       "Après les évènements liés à l'affrontement avec Mystério, l'identité secrète de Spider-Man a été révélée. Il est poursuivi par le gouvernement américain, qui l'accuse du meurtre de Mystério, et est traqué par les médias. Cet évènement a également des conséquences terribles sur la vie de sa petite-amie M. J. et de son meilleur ami Ned. Désemparé, Peter Parker demande alors de l'aide au Docteur Strange. Ce dernier lance un sort pour que tout le monde oublie que Peter est Spider-Man. Mais les choses ne se passent pas comme prévu et cette action altère la stabilité de l'espace-temps. Cela ouvre le « Multivers », un concept terrifiant dont ils ne savent quasiment rien.",
+    //   img:
+    //       "Loading...",
+    //   date: "15/12/2021",
+    //   time: "2h 28m");
+
   late MovieDetails movie;
   Map<int, String> movie_url = {};
 
@@ -32,6 +45,7 @@ class _MovieWidget extends State<MovieWidget> {
   void initState() {
     super.initState();
     movie = MovieDetails(info: _model);
+    _model.img = "http://image.tmdb.org/t/p/w500" + widget.movies[widget.index]['poster_path'];
   }
 
   _MovieWidget();
@@ -39,6 +53,13 @@ class _MovieWidget extends State<MovieWidget> {
   _getMovieImage() {
     return NetworkImage(movie.getInfo().img);
   }
+
+  _getMovieTitle() {
+    // return 
+  }
+  _getMovieDescription() {}
+  _getMovieLength() {}
+  _getMoveDate() {}
 
   @override
   Widget build(BuildContext context) {

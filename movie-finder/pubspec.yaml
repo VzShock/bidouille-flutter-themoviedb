@@ -38,9 +38,11 @@ dependencies:
   url_strategy: ^0.2.0
   flutter_theme_x: ^0.0.2
   flutter_switch: ^0.3.2
+
   cloud_firestore: ^3.1.0
   firebase_auth: ^3.2.0
   firebase_core: ^1.10.0
+
   shared_preferences: ^2.0.9
   google_sign_in: ^5.2.1
   drag_and_drop_gridview: ^1.0.8
@@ -53,6 +55,7 @@ dependencies:
   smart_select: ^4.3.2
   youtube_player_iframe: ^2.2.2
   focused_menu: ^1.0.5
+  tmdb_api: ^2.1.0
 
 dev_dependencies:
   flutter_test:
